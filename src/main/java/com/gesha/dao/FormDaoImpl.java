@@ -25,7 +25,7 @@ public class FormDaoImpl implements FormDao {
 
     public List<FormData> getAllFormData() {
         Session session = sessionFactory.getCurrentSession();
-        Query query = session.createQuery("from FormData");
+        Query query = session.createQuery("from FormData user ORDER BY user.formId DESC");
         List<FormData> formList = query.list();
         session.flush();
         return formList;
